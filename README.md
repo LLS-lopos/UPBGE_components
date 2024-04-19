@@ -16,7 +16,7 @@ utilisation des components dans UPBGE
 
 ### Liste
 
-- splitscreen (s'attache seulement au caméra)
+- splitscreen (s'attache seulement au caméra) YT -> https://www.youtube.com/watch?v=lLlS4wj2g2U
 
 ---
 - Lien vers mon Discord |-> https://discord.com/invite/mGK42pquT5
