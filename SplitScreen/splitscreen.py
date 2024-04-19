@@ -17,8 +17,11 @@ class Splitscreen(bge.types.KX_PythonComponent):
 		("Top", 1.0),
         ("PropertyActif", "")
 	])
-    
+
     def start(self, args):
+        self.scene = bge.logic.getCurrentScene()
+        self.ecran_H = bge.render.getWindowHeight()
+        self.ecran_L = bge.render.getWindowWidth()
         self.actif = args["Activate"]
         self.gauche = args["Left"]
         self.bas = args["Bottom"]
@@ -26,36 +29,23 @@ class Splitscreen(bge.types.KX_PythonComponent):
         self.haut = args["Top"]
         self.camera = args["Camera"]
         self.actionneur = args["PropertyActif"]
-        
-        self.scene = bge.logic.getCurrentScene()
         self.objet = self.scene.objects
-        self.cam = self.scene.objects[self.camera]
-    
+
     def activation(self):
-        prop = str(self.actionneur)
-        prop_verifier = [obj for obj in self.objet if prop in obj]
-        for element in prop_verifier:
-            if element[prop] == True:
+        prop_list = [obj for obj in self.objet if self.actionneur in obj]
+        for element in prop_list:
+            if element[self.actionneur] is True:
                 self.actif = True
                 break
             else:
                 self.actif = False
-        
+
     def tailleEcran(self):
-        self.ecran_H = bge.render.getWindowHeight()
-        self.ecran_L = bge.render.getWindowWidth()
-        self.scene = bge.logic.getCurrentScene()
-        
-        Gauche = self.ecran_L*self.gauche; Bas = self.ecran_H*self.bas; Droite = self.ecran_L*self.droite; Haut = self.ecran_H*self.haut
-        
-        Gauche = int(Gauche)
-        Bas = int(Bas)
-        Droite = int(Droite)
-        Haut = int(Haut)
-        
+        Gauche = int(self.ecran_L*self.gauche); Bas = int(self.ecran_H*self.bas); Droite = int(self.ecran_L*self.droite); Haut = int(self.ecran_H*self.haut)
+        self.cam = self.scene.objects[self.camera]
         self.cam.setViewport(Gauche, Bas, Droite, Haut)
         self.cam.useViewport = True
-    
+
     def update(self):
         self.activation()
         if self.actionneur is not None:
