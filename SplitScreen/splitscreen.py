@@ -2,7 +2,7 @@
 # Python Component for Splitscreen
 # script by Ludérïck Le Saouter @LLS
 # CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
-# update V2: 18/04/2024
+# update V3: 19/04/2024
 
 import bge
 from collections import OrderedDict
@@ -10,13 +10,13 @@ from collections import OrderedDict
 class Splitscreen(bge.types.KX_PythonComponent):
     args = OrderedDict([
         ("Activate", False),
-		("Camera", ""),
-		("Left", 0.0),
+        ("Camera", ""),
+        ("Left", 0.0),
         ("Bottom", 0.0),
-		("Right", 1.0),
-		("Top", 1.0),
+        ("Right", 1.0),
+        ("Top", 1.0),
         ("PropertyActif", "")
-	])
+    ])
 
     def start(self, args):
         self.scene = bge.logic.getCurrentScene()
@@ -27,14 +27,15 @@ class Splitscreen(bge.types.KX_PythonComponent):
         self.bas = args["Bottom"]
         self.droite = args["Right"]
         self.haut = args["Top"]
-        self.camera = args["Camera"]
+        self.camera = self.scene.objects[args["Camera"]]
         self.actionneur = args["PropertyActif"]
         self.objet = self.scene.objects
 
     def activation(self):
-        prop_list = [obj for obj in self.objet if self.actionneur in obj]
+        liste_actionneur = self.actionneur.split(", ")
+        prop_list = [obj for obj in self.objet if any(prop in obj for prop in liste_actionneur)]
         for element in prop_list:
-            if element[self.actionneur] is True:
+            if any(element[prop] for prop in liste_actionneur if prop in element and element[prop]):
                 self.actif = True
                 break
             else:
@@ -42,9 +43,8 @@ class Splitscreen(bge.types.KX_PythonComponent):
 
     def tailleEcran(self):
         Gauche = int(self.ecran_L*self.gauche); Bas = int(self.ecran_H*self.bas); Droite = int(self.ecran_L*self.droite); Haut = int(self.ecran_H*self.haut)
-        self.cam = self.scene.objects[self.camera]
-        self.cam.setViewport(Gauche, Bas, Droite, Haut)
-        self.cam.useViewport = True
+        self.camera.setViewport(Gauche, Bas, Droite, Haut)
+        self.camera.useViewport = True
 
     def update(self):
         self.activation()
@@ -52,6 +52,6 @@ class Splitscreen(bge.types.KX_PythonComponent):
             if self.actif is True:
                 self.tailleEcran()
             else:
-                self.cam.useViewport = False
+                self.camera.useViewport = False
         else:
             self.tailleEcran()
