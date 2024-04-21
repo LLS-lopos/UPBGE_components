@@ -23,4 +23,4 @@ utilisation des components dans UPBGE
 - Lien vers le site UBPGE |-> [UPBGE](https://upbge.org/)
 - Lien vers le Discord UPBGE officiel|-> [Discord-UPBGE](https://discord.gg/8PcrtTJW2R)
 ---
-### License projet: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+### License projet: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
