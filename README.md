@@ -16,11 +16,11 @@ utilisation des components dans UPBGE
 
 ### Liste
 
-- splitscreen (s'attache seulement au caméra) YT -> https://www.youtube.com/watch?v=lLlS4wj2g2U
+- splitscreen (s'attache seulement au caméra) YT -> [Demo Splitscreen](https://www.youtube.com/watch?v=lLlS4wj2g2U)
 
 ---
-- Lien vers mon Discord |-> https://discord.com/invite/mGK42pquT5
-- Lien vers le site UBPGE |-> https://upbge.org/
-- Lien vers le Discord UPBGE officiel|-> https://discord.gg/8PcrtTJW2R
+- Lien vers mon Discord |-> [Discord-LLS-Lopos](https://discord.com/invite/mGK42pquT5)
+- Lien vers le site UBPGE |-> [UPBGE](https://upbge.org/)
+- Lien vers le Discord UPBGE officiel|-> [Discord-UPBGE](https://discord.gg/8PcrtTJW2R)
 ---
 ### License projet: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
