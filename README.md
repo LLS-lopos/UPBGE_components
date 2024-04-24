@@ -14,9 +14,9 @@ utilisation des components dans UPBGE
 
 **ce principe s'applique à tous les scripts de type "PythonComponent"**
 
-### Liste
+## Liste
 
-- splitscreen (s'attache seulement au caméra) YT -> [Demo Splitscreen](https://www.youtube.com/watch?v=lLlS4wj2g2U)
+- splitscreen (s'attache seulement au caméra) YT -> [Demo Splitscreen](https://www.youtube.com/watch?v=wNbiaCULk3M)
 
 ---
 - Lien vers mon Discord |-> [Discord-LLS-Lopos](https://discord.com/invite/mGK42pquT5)
